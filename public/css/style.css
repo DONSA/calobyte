@@ -1,0 +1,193 @@
+
+:root {
+    --black: #525f7f;
+    --purple: #6772e5;
+    --blue: #20a2ff;
+    --deep-blue: #155bda;
+    --green: #24b47e;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    color: var(--black);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
+}
+
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+}
+
+.panel {
+    background: #f4f5f7;
+    border-radius: 20px 20px 5px 5px;
+    padding: 3rem 1.5rem 1.5rem;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+
+.panel-title {
+    margin: -3rem -1.5rem 1.5rem -1.5rem;
+    padding: 20px;
+    background: #fff;
+    color: var(--deep-blue);
+    border-radius: 20px 20px 0 0;
+}
+
+.block label {
+    font-size: 20px;
+}
+
+.form-control {
+    border: 0;
+}
+
+.badge-primary {
+    background: var(--blue);
+}
+
+.badge-carbs {
+    background: var(--purple);
+}
+
+.badge-proteins {
+    background: var(--blue);
+}
+
+.badge-fats {
+    background: var(--green);
+}
+
+.badge-success {
+    background: white;
+    color: var(--green);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: #fff;
+}
+
+input[type=range]#carbs::-webkit-slider-thumb {
+    background: var(--purple);
+}
+input[type=range]#proteins::-webkit-slider-thumb {
+    background: var(--blue);
+}
+input[type=range]#fats::-webkit-slider-thumb {
+    background: var(--green);
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.results {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 80px 110px 80px 80px 80px;
+    grid-gap: 10px;
+}
+
+.block {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+}
+
+.block i {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    height: 1em;
+}
+
+.block span {
+    text-align: center;
+    font-size: small;
+    line-height: 0;
+}
+
+.block h1 {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 0;
+}
+
+.bmi,
+.bmr {
+    background: #fff;
+    color: var(--black);
+}
+
+.bmi i,
+.bmr i {
+    top: 5px;
+}
+
+.tdee {
+    grid-column: span 2;
+    background: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
+    color: white;
+}
+
+.carbs {
+    grid-column: span 2;
+    background: #6772e5;
+}
+
+.proteins {
+    grid-column: span 2;
+    background: #20a2ff;
+}
+
+.fats {
+    grid-column: span 2;
+    background: #24b47e;
+}
+
+.disclaimer {
+    grid-column: span 2;
+    color: var(--black);
+}
+
+.disclaimer span {
+    line-height: 1.5;
+    text-align: left;
+}
+
+.tooltip code {
+    line-height: 1px;
+}
+
+.tooltip.show {
+    opacity: 1;
+}
+.tooltip-inner {
+    background-color: var(--black);
+    text-align: left;
+    max-width: 405px
+}
+.tooltip.bs-tooltip-auto[x-placement^=right] .arrow::before, .tooltip.bs-tooltip-right .arrow::before,
+.tooltip.bs-tooltip-auto[x-placement^=left] .arrow::before, .tooltip.bs-tooltip-left .arrow::before {
+    border-right-color: var(--black);
+    border-left-color: var(--black);
+}
+
+.form-control:focus {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+

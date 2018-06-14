@@ -1,0 +1,20 @@
+{
+  "name": "calobyte",
+  "version": "1.0.0",
+  "description": "Online fitness calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fitness",
+    "calculator",
+    "calories",
+    "macros"
+  ],
+  "author": "Nuno Lopes",
+  "license": "ISC",
+  "dependencies": {
+    "fatsecret": "^1.0.2"
+  }
+}

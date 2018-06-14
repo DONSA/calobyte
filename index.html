@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calobyte</title>
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- App -->
+    <link rel="stylesheet" href="public/css/style.css">
+    <script src="public/js/app.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="panel">
+                <h3 class="panel-title">Your Data</h3>
+
+                <form>
+                    <div class="form-group row">
+                        <label for="gender" class="col-sm-4">Gender</label>
+                        <div class="col-sm-8">
+                            <select id="gender" class="form-control" v-model.number="gender">
+                                <option value="5">Male</option>
+                                <option value="-161">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="age" class="col-sm-4">Age</label>
+                        <div class="col-sm-8">
+                            <input type="number" min="0" id="age" class="form-control" v-model.number="age">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="height" class="col-sm-4">Height</label>
+                        <div class="col-sm-8">
+                            <input type="number" min="0" id="height" class="form-control" v-model.number="height">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="weight" class="col-sm-4">Weight</label>
+                        <div class="col-sm-8">
+                            <input type="number" min="0" id="weight" class="form-control" v-model.number="weight">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="activity" class="col-sm-4">Activity Level</label>
+                        <div class="col-sm-8">
+                            <select id="activity" class="form-control" v-model.number="activity">
+                                <option value="1.2">Sedentary (0 days/week)</option>
+                                <option value="1.375">Light (1-3 days/week)</option>
+                                <option value="1.55">Moderate (3-5 days/week)</option>
+                                <option value="1.725">High (6 days/week)</option>
+                                <option value="1.9">Extreme (7 days/week)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="goals" class="col-sm-4">Goals</label>
+                        <div class="col-sm-8">
+                            <select id="goals" class="form-control" v-model="goals">
+                                <option value="lose">Lose Weight (-15%)</option>
+                                <option value="maintain">Maintain Weight</option>
+                                <option value="gain">Gain Weight (+5%)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="form-group row">
+                        <label for="carbs" class="col-sm-4">Carbs</label>
+                        <div class="col-sm-6">
+                            <input type="range" id="carbs" class="custom-range" min="0" max="100" step="1" v-model.number="macros.carbs">
+                        </div>
+                        <div class="col-sm-2">
+                            <span class="badge badge-primary badge-carbs">{{ macros.carbs }}%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="proteins" class="col-sm-4">Proteins</label>
+                        <div class="col-sm-6">
+                            <input type="range" id="proteins" class="custom-range" min="0" max="100" step="1" v-model.number="macros.proteins">
+                        </div>
+                        <div class="col-sm-2">
+                            <span class="badge badge-primary badge-proteins">{{ macros.proteins }}%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="fats" class="col-sm-4">Fats</label>
+                        <div class="col-sm-6">
+                            <input type="range" id="fats" class="custom-range" min="0" max="100" step="1" v-model.number="macros.fats">
+                        </div>
+                        <div class="col-sm-2">
+                            <span class="badge badge-primary badge-fats">{{ macros.fats }}%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4">Total</label>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-2">
+                            <span v-bind:class="badge">{{ total }}%</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel">
+
+                <h3 class="panel-title">Your Results</h3>
+
+                <div class="results">
+                    <div class="block bmi">
+                        <i class="fas fa-info-circle fa-xs"
+                           data-toggle="tooltip"
+                           data-placement="right"
+                           title="
+                               <b>Body Mass Index</b> is a measurement of body fat based on height and weight that applies to both men and women between the ages of 18 and 65 years. <br>
+                               <code class='small'>
+                                   Men = (10 × weight) + (6.25 × height) - (5 × age) + 5 <br>
+                                   Women = (10 × weight) + (6.25 × height) - (5 × age) - 161
+                               </code>
+                           "
+                           data-html="true"
+                        ></i>
+                        <span class="top">BMI</span>
+                        <h1>{{ bmi }}</h1>
+                    </div>
+                    <div class="block bmr">
+                        <i class="fas fa-info-circle fa-xs"
+                           data-toggle="tooltip"
+                           data-placement="right"
+                           title="<b>Basal Metabolic Rate</b> is the amount of energy expended on a daily basis by humans while at rest."
+                           data-html="true"
+                        ></i>
+                        <span class="top">BMR</span>
+                        <h1>{{ bmr }}</h1>
+                    </div>
+
+                    <div class="block tdee" v-if="goals === 'maintain'">
+                        <i class="fas fa-info-circle fa-xs"
+                           data-toggle="tooltip"
+                           data-placement="right"
+                           title="<b>Total Daily Energy Expenditure</b> is a method used alongside the BMR to calculate the amount of calories your body needs to function in a day based on your activity levels."
+                           data-html="true"
+                        ></i>
+                        <span>Maintain your current weight</span>
+                        <h1>{{ tdee.maintain }}</h1>
+                        <span>Calories per day</span>
+                    </div>
+                    <div class="block tdee" v-else-if="goals === 'lose'">
+                        <i class="fas fa-info-circle fa-xs"></i>
+                        <span>15% Calorie Deficit</span>
+                        <h1>{{ tdee.lose }}</h1>
+                        <span>Calories per day</span>
+                    </div>
+                    <div class="block tdee" v-else-if="goals === 'gain'">
+                        <i class="fas fa-info-circle fa-xs"></i>
+                        <span>5% Calorie Surplus</span>
+                        <h1>{{ tdee.gain }}</h1>
+                        <span>Calories per day</span>
+                    </div>
+
+                    <div class="block carbs">
+                        <span>Carbs ({{ macros.carbs }}%)</span>
+                        <h1>{{ carbs }}g</h1>
+                    </div>
+                    <div class="block proteins">
+                        <span>Protein ({{ macros.proteins }}%)</span>
+                        <h1>{{ proteins }}g</h1>
+                    </div>
+                    <div class="block fats">
+                        <span>Fats ({{ macros.fats }}%)</span>
+                        <h1>{{ fats }}g</h1>
+                    </div>
+
+                    <div class="block disclaimer">
+                        <span>To know food macros in order to plan your daily meals you can use <a href="https://www.fatsecret.com/calories-nutrition/" target="_blank">Fatsecret</a> platform.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
